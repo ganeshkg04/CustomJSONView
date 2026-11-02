@@ -1,4 +1,4 @@
-"""Settings for the CustomJSONView demonstration project."""
+"""Settings for the django-multilingual-jsonfield demonstration project."""
 
 from pathlib import Path
 import environ

@@ -1,4 +1,4 @@
-# CustomJSONView · Translation studio
+# django-multilingual-jsonfield
 
 **Edit multilingual JSON content through labelled fields in Django admin.**
 
@@ -13,8 +13,6 @@ A small, reusable example for storing translations in a single `JSONField` while
   "ar": "عالم من القصص"
 }
 ```
-
-![Refreshed translation studio login](docs/screenshots/login.jpg)
 
 ## Is this still relevant?
 
@@ -45,8 +43,8 @@ As checked on 2 November 2026, Django lists 6.1.2 as the latest release. Django 
 ## Quick start
 
 ```sh
-git clone https://github.com/ganeshkg04/CustomJSONView.git
-cd CustomJSONView
+git clone https://github.com/ganeshkg04/django-multilingual-jsonfield.git
+cd django-multilingual-jsonfield
 python3.14 -m venv .venv
 source .venv/bin/activate
 python -m pip install -r requirements.txt
