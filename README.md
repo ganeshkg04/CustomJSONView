@@ -2,6 +2,8 @@
 
 **Edit multilingual JSON content through labelled fields in Django admin.**
 
+![Editing a French title and adding Spanish: each language is a labelled field, and every translation is stored as a key in one JSONField](docs/demo.gif)
+
 A small, reusable example for storing translations in a single `JSONField` while giving editors a language-aware interface. The refreshed admin uses a restrained green palette, readable text, labelled language cards, and textareas that support both left-to-right and right-to-left content.
 
 ```json
