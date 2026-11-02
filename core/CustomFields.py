@@ -1,16 +1,17 @@
+"""The original module path is retained for existing database migrations."""
 from django.db import models
+from .translation_forms import TranslationFormField
 
 
 class JsonFieldWithTranslation(models.JSONField):
-    """
-    Custom JsonField which inherits JSONField to store text in different languages
-    """
-
-    def __init__(self, *args, **kwargs):
-        self.translation_needed = True
-        super(JsonFieldWithTranslation, self).__init__(*args, **kwargs)
+    """Store language-code/text pairs, with a labelled input per language."""
 
     def formfield(self, **kwargs):
-        form_field = super().formfield(**kwargs)
-        form_field.__dict__['translation_needed'] = True
-        return form_field
+        return super().formfield(**{'form_class': TranslationFormField, **kwargs})
+
+    def save_form_data(self, instance, data):
+        # Changing the configured languages must not silently erase old translations.
+        existing = getattr(instance, self.name, None)
+        merged = dict(existing) if isinstance(existing, dict) else {}
+        merged.update(data or {})
+        super().save_form_data(instance, merged)

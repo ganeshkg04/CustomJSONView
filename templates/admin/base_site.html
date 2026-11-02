@@ -1,0 +1,5 @@
+{% extends "admin/base.html" %}
+{% load static %}
+{% block extrastyle %}{{ block.super }}<link rel="stylesheet" href="{% static 'translationapp/studio.css' %}">{% endblock %}
+{% block branding %}<div class="studio-brand"><span class="studio-mark" aria-hidden="true">L.</span><div><a href="{% url 'admin:index' %}">Lingua</a><span class="studio-tagline">TRANSLATION STUDIO</span></div></div>{% endblock %}
+{% block nav-global %}<span class="studio-header-note">Localize your content. Keep your flow.</span>{% endblock %}

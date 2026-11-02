@@ -8,7 +8,13 @@ from core.CustomFields import JsonFieldWithTranslation
 class SampleModel(models.Model):
     title = JsonFieldWithTranslation()
     article = JsonFieldWithTranslation()
-    author = JSONField(default=dict, blank=True, null=True)  # Added just for testing
+    author = JSONField(default=dict, blank=True, null=True)
+
+    def __str__(self):
+        from django.conf import settings
+        if isinstance(self.title, dict):
+            return self.title.get(settings.DEFAULT_LANGUAGE_CODE) or f'Content #{self.pk or "new"}'
+        return f'Content #{self.pk or "new"}'
 
 
 class MpttSampleModel(MPTTModel):

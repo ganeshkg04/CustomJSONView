@@ -1,0 +1,12 @@
+<div class="translation-editor">
+  {% for subwidget in widget.subwidgets %}
+    <div class="translation-language">
+      <div class="translation-language-heading">
+        <label{% if subwidget.attrs.id %} for="{{ subwidget.attrs.id }}"{% endif %}>{{ subwidget.language_label }}</label>
+        <span class="language-code">{{ subwidget.language_code }}</span>
+        {% if subwidget.is_default %}<span class="default-language">Default language</span>{% endif %}
+      </div>
+      {% include subwidget.template_name with widget=subwidget %}
+    </div>
+  {% endfor %}
+</div>
